@@ -21,7 +21,6 @@ RUN chmod +x ultramine_server_run_line.sh
 FROM base as ultramine
 WORKDIR /opt
 COPY --from=bootstrap /opt /opt
-EXPOSE 25565/tcp
 
 FROM ultramine as gtnh
 ARG GTNH_VERSION=2.1.2.3qf
@@ -56,3 +55,4 @@ ARG JAVA_XMX=8G
 ENV JAVA_XMS ${JAVA_XMS}
 ENV JAVA_XMX ${JAVA_XMX}
 # ENTRYPOINT [ "/bin/bash", "./gtnh.sh" ]
+EXPOSE 6586/tcp
